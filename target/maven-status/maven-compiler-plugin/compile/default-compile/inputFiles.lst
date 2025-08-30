@@ -1,0 +1,5 @@
+/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/CampaignIngestApplication.java
+/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/dto/message/OptinMessageSQS.java
+/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/dto/request/OptinMessage.java
+/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/function/Ingest.java
+/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/mapper/OptinMessageMapper.java
