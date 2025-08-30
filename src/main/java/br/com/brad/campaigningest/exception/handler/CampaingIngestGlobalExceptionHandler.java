@@ -2,6 +2,7 @@ package br.com.brad.campaigningest.exception.handler;
 
 import java.net.URI;
 import java.time.OffsetDateTime;
+import java.util.Objects;
 import java.util.UUID;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -12,10 +13,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import lombok.RequiredArgsConstructor;
+import io.micrometer.tracing.Tracer;
+
 import br.com.brad.campaigningest.exception.RequiredFieldException;
 
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class CampaingIngestGlobalExceptionHandler {
+
+    private final Tracer tracer;
 
     private static final String TYPE_400 = "https://httpstatuses.io/400";
 
@@ -46,11 +53,11 @@ public class CampaingIngestGlobalExceptionHandler {
     }
 
     private String getOrCreateTraceId(HttpServletRequest request) {
-        // TODO jogar a responsabilidade de gerar o traceID para o Spring sugestao Spring Sleuth
-        var attr = request.getAttribute("traceId");
-        if (attr instanceof String s && StringUtils.hasText(s)) {
-            return s;
+        var span = tracer.currentSpan();
+        if (Objects.nonNull(span)) {
+            return span.context().traceId();
         }
+
         var generated = UUID.randomUUID().toString();
         request.setAttribute("traceId", generated);
         return generated;

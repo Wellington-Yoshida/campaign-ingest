@@ -3,12 +3,12 @@ package br.com.brad.campaigningest.mapper;
 import br.com.brad.campaigningest.model.message.OptinMessageSendRabbitMQ;
 import br.com.brad.campaigningest.model.request.OptinMessage;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
-import org.joda.time.DateTime;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-08-28T18:10:55-0300",
+    date = "2025-08-30T18:34:00-0300",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 public class OptinMessageMapperImpl implements OptinMessageMapper {
@@ -20,7 +20,7 @@ public class OptinMessageMapperImpl implements OptinMessageMapper {
         }
 
         String name = null;
-        DateTime dateSimulation = null;
+        LocalDateTime dateSimulation = null;
         BigDecimal amount = null;
         String email = null;
 

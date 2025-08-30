@@ -1,8 +1,7 @@
 package br.com.brad.campaigningest.model.message;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-import org.joda.time.DateTime;
-
-public record OptinMessageSendRabbitMQ(String email, String name, DateTime dateSimulation, BigDecimal amount) {
+public record OptinMessageSendRabbitMQ(String email, String name, LocalDateTime dateSimulation, BigDecimal amount) {
 }

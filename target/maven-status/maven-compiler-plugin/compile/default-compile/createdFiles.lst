@@ -1,6 +1,8 @@
 br/com/brad/campaigningest/mapper/OptinMessageMapper.class
+br/com/brad/campaigningest/exception/handler/CampaingIngestGlobalExceptionHandler.class
 br/com/brad/campaigningest/CampaignIngestApplication.class
 br/com/brad/campaigningest/function/Ingest.class
-br/com/brad/campaigningest/dto/request/OptinMessage.class
-br/com/brad/campaigningest/dto/message/OptinMessageSQS.class
+br/com/brad/campaigningest/model/request/OptinMessage.class
 br/com/brad/campaigningest/mapper/OptinMessageMapperImpl.class
+br/com/brad/campaigningest/exception/RequiredFieldException.class
+br/com/brad/campaigningest/model/message/OptinMessageSendRabbitMQ.class
