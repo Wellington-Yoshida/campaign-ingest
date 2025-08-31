@@ -1,7 +1,0 @@
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/CampaignIngestApplication.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/exception/RequiredFieldException.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/exception/handler/CampaingIngestGlobalExceptionHandler.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/function/Ingest.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/mapper/OptinMessageMapper.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/model/message/OptinMessageSendRabbitMQ.java
-/Users/issamiyoshida/Desktop/Yoshida/Aplicacoes em Java/campaign-ingest/src/main/java/br/com/brad/campaigningest/model/request/OptinMessage.java
