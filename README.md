@@ -25,9 +25,11 @@ Para compilar arquivo index.html do Javadoc com documentação:
 ```bash
 mvn javadoc:javadoc
 ```
-
+### 📖 Javadoc
 <img src="/src/main/docs/images/javadoc_001.png" alt="Javadoc" width="100%">
 
+### 🔎📄 Spring RestDOC
+<img src="/src/main/docs/images/springrestdoc_001.png" alt="Spring RestDOC" width="100%">
 
 ## 💡 Exemplos de uso
 
