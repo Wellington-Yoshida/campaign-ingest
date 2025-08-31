@@ -20,6 +20,15 @@ Clone o repositório e execute o seguinte comando para compilar o projeto:
 mvn clean install
 ```
 
+Para compilar arquivo index.html do Javadoc com documentação:
+
+```bash
+mvn javadoc:javadoc
+```
+
+<img src="/src/main/docs/images/javadoc.png" alt="Javadoc" width="100%">
+
+
 ## 💡 Exemplos de uso
 
 ```http
