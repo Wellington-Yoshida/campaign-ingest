@@ -7,6 +7,7 @@ Função responsável por consumir dados brutos recebidos pelo Adobe Analytics, 
 ## 🛠️ Tecnologias utilizadas
 
 - Spring Cloud Function
+- JUnit5
 - RabbitMQ
 - Lombok
 - Spring RestDOC
