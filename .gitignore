@@ -1,0 +1,135 @@
+Claro! Segue um .gitignore abrangente para um projeto Spring Boot (Maven), cobrindo IDEs comuns, arquivos temporários, logs, relatórios de testes, configurações locais e artefatos de build. Mantive os arquivos do Maven Wrapper permitidos (devem ser commitados).
+
+```.gitignore (gitignore)
+# ==========================================
+# SISTEMA OPERACIONAL
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ==========================================
+# IDEs E EDITORES
+# ==========================================
+
+# Ignorar bytecode Java
+*.class
+
+# Ignorar artefatos empacotados
+*.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+# Arquivos de projeto JetBrains (já existentes)
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Eclipse
+.project
+.classpath
+.settings/
+.factorypath
+
+# VS Code
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/.nb-gradle/
+
+# ==========================================
+# BUILD / SAÍDA
+# ==========================================
+target/
+build/
+out/
+bin/
+dependency-reduced-pom.xml
+
+# ==========================================
+# LOGS E DUMPS
+# ==========================================
+logs/
+*.log
+*.log.*
+hs_err_pid*
+replay_pid*
+heapdump.hprof
+*.hprof
+
+# ==========================================
+# SPRING / CONFIG LOCAL
+# (Mantenha exemplos versionados ex.: application-example.yml)
+# ==========================================
+application-local.properties
+application-local.yml
+application-*.local.properties
+application-*.local.yml
+application-*.secret.properties
+application-*.secret.yml
+secrets.*
+*.secrets.*
+.env
+.env.*
+!.env.example
+
+# Keystores/Certs locais (não versionar chaves reais)
+*.jks
+*.p12
+*.pfx
+*.pem
+*.crt
+*.key
+
+# ==========================================
+# TESTES/RELATÓRIOS
+# ==========================================
+surefire-reports/
+failsafe-reports/
+jacoco.exec
+.jacoco/
+.site/
+
+# ==========================================
+# DOCKER/CONTAINERS
+# ==========================================
+docker/*.env
+docker/.env
+compose.override.yml
+docker-compose.override.yml
+
+# ==========================================
+# MISC
+# ==========================================
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# ==========================================
+# MAVEN WRAPPER
+# (NÃO ignore .mvn/; o wrapper deve ser commitado)
+# ==========================================
+!.mvn/wrapper/maven-wrapper.jar
+```

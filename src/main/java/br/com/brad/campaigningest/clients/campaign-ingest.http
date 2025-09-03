@@ -1,0 +1,23 @@
+# Cenario de erro de campos faltando
+POST http://localhost:8081/processMessage
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "name": "Fulano de Tal"
+}
+
+###
+
+# Cenario de sucesso
+POST http://localhost:8081/processMessage
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "name": "Fulano de Tal",
+  "dateSimulation": "2025-08-28T10:30",
+  "amount": 1234.56
+}
+
+###
