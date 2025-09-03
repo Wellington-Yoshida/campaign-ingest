@@ -10,9 +10,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.apache.logging.log4j.util.Strings;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -21,7 +21,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
@@ -29,13 +28,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.micrometer.tracing.Tracer;
 
+import br.com.brad.campaigningest.dataMock.DataMock;
 import br.com.brad.campaigningest.model.request.OptinMessage;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
 @AutoConfigureRestDocs
-@ExtendWith(SpringExtension.class)
 public class IngestTest {
+
+    private static final String ENDPOINT_PROCESS_MESSAGE = "/processMessage";
+    private static final String APPLICATION_JSON = "application/json";
 
     @Autowired
     private MockMvc mockMvc;
@@ -46,20 +48,19 @@ public class IngestTest {
     @Autowired
     private Tracer tracer;
 
-    @MockitoBean
+    @Autowired
     private LocalValidatorFactoryBean validator;
 
     @Autowired
     private ObjectMapper objectMapper;
 
+    @DisplayName("Dado que envio body valido entao deve retornar estatus 200")
     @Test
     void processMessage() throws Exception {
-        var body = new OptinMessage("cliente@dominio.com", "Cliente Teste", LocalDateTime.now(), BigDecimal.TEN);
+        var body = DataMock.getOptinMessage();
 
-        Mockito.when(validator.validate(Mockito.any())).thenReturn(java.util.Collections.emptySet());
-
-        mockMvc.perform(post("/processMessage")
-                        .contentType("application/json")
+        mockMvc.perform(post(ENDPOINT_PROCESS_MESSAGE)
+                        .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(body)))
                 .andExpect(status().isOk())
                 .andDo(document("process-message-success",
@@ -70,5 +71,16 @@ public class IngestTest {
                                 fieldWithPath("amount").description("Valor simulado para o cliente").type(JsonFieldType.NUMBER)
                         )
                 ));
+    }
+
+    @DisplayName("Dado que envio body invalido entao deve retornar estatus 400")
+    @Test
+    void processMessageError() throws Exception {
+        var body = new OptinMessage(Strings.EMPTY, Strings.EMPTY, LocalDateTime.now(), BigDecimal.TEN);
+
+        mockMvc.perform(post(ENDPOINT_PROCESS_MESSAGE)
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(body)))
+                .andExpect(status().isBadRequest());
     }
 }

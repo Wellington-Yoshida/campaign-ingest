@@ -81,10 +81,12 @@ public class Ingest {
 
                 validateOrThrow(value);
                 var optinMessage = OptinMessageMapper.INSTANCE.convert(value);
+
                 rabbitTemplate.convertAndSend("campaign", "campaign",
                         objectMapper.writeValueAsString(optinMessage));
 
                 log.debug("Processamento concluído com sucesso");
+
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             } finally {
